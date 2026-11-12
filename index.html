@@ -15,60 +15,90 @@ section.content{padding:90px 0}h2{font-size:clamp(2.5rem,7vw,6rem);letter-spacin
 footer{background:#d9a759;color:#23190f;padding:72px 0 48px;overflow:hidden}footer .wrap{position:relative}footer h2{font-size:clamp(4rem,14vw,13rem);margin-bottom:24px}footer a{display:inline-block;margin:12px 16px 0 0}.stickers{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:30px}.sticker{display:inline-block;background:#f7e7c6;border:3px solid #21170e;box-shadow:4px 5px #21170e;padding:.55em .8em;border-radius:9px;font-weight:900;transform:rotate(var(--tilt));transition:transform .25s}.sticker:hover{transform:rotate(0) scale(1.08)}dialog{color:var(--ink);background:#231d16;border:1px solid var(--line);border-radius:18px;width:min(520px,92vw);max-height:85svh;padding:24px}dialog::backdrop{background:#000a;backdrop-filter:blur(5px)}.baghead,.bagline{display:flex;align-items:center;justify-content:space-between;gap:10px}.bagline{border-bottom:1px solid var(--line);padding:12px 0}.bagline button{padding:.45em .7em}.bagline p{margin:0}.bag-items{margin:18px 0}
 @media(max-width:690px){.detail{grid-template-columns:1fr;gap:10px}.stage{min-height:300px}.large{width:122px}.hero .float{opacity:.4}.shelf{gap:3px}.pick{font-size:.76rem}.stack article{min-height:240px}nav{gap:12px}nav a{font-size:.76rem}nav button{padding:.5rem .7rem;font-size:.8rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.tunnel{height:auto}.hero,.stack article{position:relative;top:auto}}
-.shelf{grid-template-columns:repeat(auto-fit,minmax(130px,1fr));background:#211b15;padding:12px}.pick{display:block;padding:10px 6px}.stage{cursor:auto;touch-action:auto}.stage #model-preview{width:100%;text-align:center}.stage iframe{display:block;width:100%;height:345px;border:0;border-radius:16px}.stage a{display:block;margin:10px}.table-wrap{max-height:400px}table{min-width:260px}.table-wrap thead{position:sticky;top:0;background:var(--base)}[hidden]{display:none!important}#only-3d{width:auto}</style>
+.shelf{grid-template-columns:repeat(auto-fit,minmax(130px,1fr));background:#211b15;padding:12px}.pick{display:block;padding:10px 6px}.stage{cursor:auto;touch-action:auto}.stage #model-preview{width:100%;text-align:center}.stage iframe{display:block;width:100%;height:345px;border:0;border-radius:16px}.stage a{display:block;margin:10px}.table-wrap{max-height:400px}table{min-width:260px}.table-wrap thead{position:sticky;top:0;background:var(--base)}[hidden]{display:none!important}#only-3d{width:auto}.shelf{gap:12px}.pick{min-height:64px;background:#ffffff08}.pick model-viewer{width:100%;height:145px;pointer-events:none}#phone{width:min(950px,94vw);max-height:91svh}#phone[open]{animation:open-phone .4s ease-out both}@keyframes open-phone{from{transform:perspective(800px) rotateX(-14deg) translateY(22px) scale(.94);opacity:0}to{transform:none;opacity:1}}.phone-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;padding:20px 0}.phone-grid h2{font-size:clamp(2rem,5vw,4rem)}.phone-grid p{margin:12px 0}#visual model-viewer{width:100%;height:min(480px,52svh);background:radial-gradient(ellipse,#84633d66,transparent 70%)}.model-note{font-size:.9rem;color:var(--gold);margin:8px 0}@media(max-width:680px){.phone-grid{grid-template-columns:1fr}#visual model-viewer{height:38svh}}</style>
 <a class="skip" href="#shelf">Skip to phones</a>
 <nav aria-label="Main"><a class="brand" href="#home">BIG MOH</a><a href="#shelf">Shelf</a><a href="#compare">Compare</a><a href="#visit">Visit</a><button id="bag">Bag <span id="count">0</span></button></nav>
 <main id="home">
 <section class="tunnel" aria-label="BIG MOH Apple Store"><div class="hero"><div class="orbit" aria-hidden="true"></div><div class="hero-copy"><p class="tag">Lawanson · Lagos</p><h1>The Phone <em>Shelf.</em></h1><p>Explore your next iPhone. Buy, sell or swap with BIG MOH.</p><a class="pill primary" href="#shelf">Explore the shelf ↓</a></div></div></section>
-<section id="shelf" class="content wrap"><p class="tag">iPhone catalog</p><h2>Pick up a phone.</h2><p>Browse the lineup and ask BIG MOH to confirm stock. Where a sourced 3D model is available, open the viewer to rotate it.</p><label><input type="checkbox" id="only-3d"> Show phones with a 3D source (3)</label><div class="shelf" aria-label="Phone models"></div><div class="detail"><div id="stage" class="stage"><div id="model-preview"></div></div><div><div class="switch"><button id="prev" aria-label="Previous phone">←</button><button id="next" aria-label="Next phone">→</button></div><h2 id="model"></h2><p id="spec"></p><div class="actions"><button class="primary" id="add">Add to bag</button><a class="pill" href="#compare">Compare phones</a></div><p class="status" role="status" id="status"></p></div></div></section>
+<section id="shelf" class="content wrap"><p class="tag">iPhone catalog</p><h2>Pick up a phone.</h2><p>Choose an iPhone to see its details. Available 3D previews load as you browse.</p><div class="shelf" aria-label="Phone models"></div></section>
 <section class="content wrap" id="compare"><p class="tag">Compare models</p><h2>Compare your quotes.</h2><p>Enter prices you’ve been quoted in naira. The lowest entered price is shown below.</p><div class="table-wrap"><table><thead><tr><th scope="col">Model</th><th scope="col">Quote (₦)</th></tr></thead><tbody id="quotes"></tbody></table></div><p id="comparison" class="status" aria-live="polite"></p></section>
 <section class="content wrap stack" aria-labelledby="counter"><h2 id="counter">At the counter.</h2><article style="--order:0;--panel:#eadbbf"><h3>Buy.</h3><p>Send your shortlist and ask what’s available today.</p><button class="primary" id="buy-bag">Open your bag ↗</button></article><article style="--order:1;--panel:#d3a86f"><h3>Sell.</h3><p>Share your model, storage and condition for a quote.</p><a href="https://wa.me/2348137016992?text=Hi%20BIG%20MOH%2C%20I%27d%20like%20to%20sell%20my%20phone.">Sell on WhatsApp ↗</a></article><article style="--order:2;--panel:#f0ca87"><h3>Swap.</h3><p>Tell us what you have and what you want to switch to.</p><a href="https://wa.me/2348137016992?text=Hi%20BIG%20MOH%2C%20I%27d%20like%20to%20swap%20my%20phone.">Ask about a swap ↗</a></article></section>
 </main>
 <footer id="visit"><div class="wrap"><div class="stickers"><span class="sticker" style="--tilt:-7deg">LAWANSON</span><span class="sticker" style="--tilt:5deg">BUY · SELL · SWAP</span><span class="sticker" style="--tilt:-3deg">SHOP 4</span></div><h2>BIG MOH.</h2><p>Shop 4, D’yard Plaza, Lawanson Road, Lagos Mainland</p><a href="https://wa.me/2348137016992">WhatsApp ↗</a><a href="tel:+2348137016992">Call 0813 701 6992</a><a href="https://www.google.com/maps/search/?api=1&amp;query=D%27yard%20Plaza%20Lawanson%20Road%20Lagos">Directions ↗</a></div></footer>
 <dialog id="cart" aria-labelledby="bag-title"><div class="baghead"><h3 id="bag-title">Your bag</h3><form method="dialog"><button>Close</button></form></div><div class="bag-items"></div><a id="order" class="pill primary" href="https://wa.me/2348137016992">Request a quote on WhatsApp ↗</a></dialog>
+<dialog id="phone" aria-labelledby="phone-name"><div class="baghead"><span>Phone details</span><form method="dialog"><button autofocus>Close</button></form></div><div class="phone-grid"><div id="visual"></div><div><h2 id="phone-name"></h2><p id="spec"></p><p>Ask BIG MOH for stock and pricing.</p><div class="actions"><button id="add" class="primary">Add to bag</button><a class="pill" id="phone-compare" href="#compare">Compare quotes</a></div><p id="status" role="status"></p></div></div></dialog>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 <script>
 const models = [{"name":"iPhone 17 Pro","mesh":"4541aa8a28324b33a2baaf81d263aaec","credit":"Ranguel"},{"name":"iPhone 16 Pro","mesh":"c1935d4bfc234e099594f8d9eee48f58","credit":"EV_car2013"},{"name":"iPhone 16","mesh":"1cba18375eab4504b619905b6337a123","credit":"Fa_Del"},{"name":"iPhone 11"},{"name":"iPhone 11 Pro"},{"name":"iPhone 11 Pro Max"},{"name":"iPhone 12"},{"name":"iPhone 12 mini"},{"name":"iPhone 12 Pro"},{"name":"iPhone 12 Pro Max"},{"name":"iPhone 13"},{"name":"iPhone 13 mini"},{"name":"iPhone 13 Pro"},{"name":"iPhone 13 Pro Max"},{"name":"iPhone 14"},{"name":"iPhone 14 Plus"},{"name":"iPhone 14 Pro"},{"name":"iPhone 14 Pro Max"},{"name":"iPhone 15"},{"name":"iPhone 15 Plus"},{"name":"iPhone 15 Pro"},{"name":"iPhone 15 Pro Max"},{"name":"iPhone 16 Plus"},{"name":"iPhone 16 Pro Max"},{"name":"iPhone 16e"},{"name":"iPhone 17"},{"name":"iPhone 17 Pro Max"},{"name":"iPhone 17e"},{"name":"iPhone 18 Pro"},{"name":"iPhone 18 Pro Max"},{"name":"iPhone Air"},{"name":"iPhone SE (2nd generation)"},{"name":"iPhone SE (3rd generation)"}];
-const catalog = models.map((m,i)=>({...m,i})).sort((a,b)=>b.name.localeCompare(a.name,undefined,{numeric:true}));
+const assets={"iPhone 17 Pro":["iphone_17_pro.glb","Ranguel","4541aa8a28324b33a2baaf81d263aaec","6.3-inch Super Retina XDR · A19 Pro"],"iPhone 17 Pro Max":["iphone_17_pro_max.glb","MajdyModels","87fc1df741384124a8ce0226d2b2058d","6.9-inch Super Retina XDR · A19 Pro"]};
+const catalog=models.map((m,i)=>({name:m.name,i})).sort((a,b)=>Number(Boolean(assets[b.name]))-Number(Boolean(assets[a.name]))||b.name.localeCompare(a.name,undefined,{numeric:true}));
 const q = (selector) => document.querySelector(selector);
 const money = new Intl.NumberFormat('en-NG', {style:'currency', currency:'NGN',maximumFractionDigits:0});
-q('.shelf').innerHTML = catalog.map(m=>'<button class="pick" data-model="'+m.i+'" aria-pressed="false">'+m.name+(m.mesh?' · 3D':'')+'</button>').join('');
+q('.shelf').innerHTML=catalog.map(m=>'<button class="pick" data-model="'+m.i+'" aria-haspopup="dialog">'+m.name+'</button>').join('');
+function viewerFor(name, interactive) {
+  const v=document.createElement('model-viewer');
+  v.setAttribute('alt','3D model of '+name);
+  v.setAttribute('src','https://raw.githubusercontent.com/quentin-pla/phone-mockup-studio/main/source/'+assets[name][0]);
+  v.setAttribute('camera-orbit','25deg 76deg auto');
+  v.setAttribute('loading',interactive?'eager':'lazy');
+  if(interactive){
+    v.setAttribute('camera-controls','');
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){v.setAttribute('auto-rotate','');v.setAttribute('auto-rotate-delay','0');}
+  }else v.setAttribute('aria-hidden','true');
+  return v;
+}
+document.querySelectorAll('.pick').forEach(b=>{
+  const name=models[b.dataset.model].name;
+  if(!assets[name])return;
+  const v=viewerFor(name,false);
+  const timer=setTimeout(()=>{if(!v.loaded)v.remove();},25000);
+  v.addEventListener('load',()=>clearTimeout(timer),{once:true});
+  v.addEventListener('error',()=>{clearTimeout(timer);v.remove();},{once:true});
+  b.prepend(v);
+});
 q('#quotes').innerHTML = catalog.map(m=>'<tr><th scope="row">'+m.name+'</th><td><input data-quote="'+m.i+'" aria-label="Quote for '+m.name+'" type="number" min="1" step="1" placeholder="Enter price"></td></tr>').join('');
 let selected = 0;
 let bag = {};
 try { bag = JSON.parse(localStorage.getItem('big-moh-bag')) || {}; } catch {}
+const phone=q('#phone');
+let previewTimer;
 function select(index) {
-  selected = (index+models.length)%models.length;
-  const m = models[selected];
-  q('#model').textContent = m.name;
-  q('#spec').textContent = 'Ask BIG MOH for current stock and price.';
-  const preview=q('#model-preview');
-  preview.replaceChildren();
-  if(m.mesh){
-    const load=document.createElement('button');
-    load.textContent='Load embedded 3D viewer';
-    const credit=document.createElement('a');
-    credit.href='https://sketchfab.com/3d-models/'+m.mesh;
-    credit.textContent='Open on Sketchfab ↗ · '+m.credit+' (CC BY)';
-    credit.target='_blank';
-    credit.rel='noopener noreferrer';
-    load.onclick=()=>{
-      const frame=document.createElement('iframe');
-      frame.src='https://sketchfab.com/models/'+m.mesh+'/embed?autostart=1';
-      frame.title=m.name+' interactive 3D model';
-      frame.allow='autoplay; fullscreen; xr-spatial-tracking';
-      frame.allowFullscreen=true;
-      load.replaceWith(frame);
-    };
-    preview.append(load,credit);
-  } else {
-    preview.textContent='A 3D asset has not been added for this model yet.';
+  selected=index;
+  const {name}=models[index];
+  const asset=assets[name], visual=q('#visual');
+  q('#phone-name').textContent=name;
+  q('#spec').textContent=asset?.[3]||'';
+  q('#status').textContent='';
+  visual.replaceChildren();
+  if(asset){
+    const v=viewerFor(name,true);
+    const status=document.createElement('div');
+    status.className='model-note';
+    status.setAttribute('role','status');
+    status.textContent='Loading 3D model…';
+    const credits=document.createElement('div');
+    const source=document.createElement('a');
+    source.href='https://sketchfab.com/3d-models/'+asset[2];
+    source.textContent='Model by '+asset[1];
+    const license=document.createElement('a');
+    license.href='https://creativecommons.org/licenses/by/4.0/';
+    license.textContent='CC BY 4.0';
+    credits.append(source,' · ',license);
+    previewTimer=setTimeout(()=>{status.textContent='Still loading. You can also open the model source below.';},15000);
+    v.addEventListener('load',()=>{clearTimeout(previewTimer);status.textContent='Drag to rotate';},{once:true});
+    v.addEventListener('error',()=>{clearTimeout(previewTimer);v.remove();status.textContent='The model failed to load. Try the source below.';},{once:true});
+    visual.append(v,status,credits);
+  }else{
+    const specs=document.createElement('a');
+    specs.href='https://support.apple.com/en-us/108044';
+    specs.textContent='View Apple specifications ↗';
+    visual.append('3D asset pending. ',specs);
   }
-  document.querySelectorAll('.pick').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.model)===selected)));
-  q('#status').textContent = '';
+  phone.showModal();
 }
-q('.shelf').addEventListener('click', e => { const b=e.target.closest('[data-model]'); if(b) select(Number(b.dataset.model)); });
-q('#prev').onclick = () => select(selected-1);
-q('#next').onclick = () => select(selected+1);
+q('.shelf').onclick=e=>{const b=e.target.closest('[data-model]');if(b)select(Number(b.dataset.model));};
+q('#phone-compare').onclick=()=>phone.close();
+phone.addEventListener('close',()=>{clearTimeout(previewTimer);q('#visual').replaceChildren();});
 q('#quotes').addEventListener('input', () => {
   const quotes = [...document.querySelectorAll('[data-quote]')].filter(x=>x.validity.valid&&x.valueAsNumber>0).map(x=>({name:models[x.dataset.quote].name,price:x.valueAsNumber})).sort((a,b)=>a.price-b.price);
   q('#comparison').textContent = quotes.length ? 'Lowest entered quote: '+quotes.filter(x=>x.price===quotes[0].price).map(x=>x.name).join(', ')+' · '+money.format(quotes[0].price) : '';
@@ -85,10 +115,6 @@ function renderBag() {
 q('#add').onclick=()=>{bag[selected]=(Number(bag[selected])||0)+1;renderBag();q('#status').textContent=models[selected].name+' added to your bag.';};
 q('.bag-items').onclick=e=>{const b=e.target.closest('[data-remove]');if(b){bag[b.dataset.remove]-=1;renderBag();(q('[data-remove="'+b.dataset.remove+'"]')||q('#cart form button')).focus();}};
 q('#bag').onclick=q('#buy-bag').onclick=()=>q('#cart').showModal();
-q('#only-3d').onchange = e => {
-  document.querySelectorAll('.pick').forEach(b=>b.hidden=e.target.checked&&!models[b.dataset.model].mesh);
-  if(e.target.checked&&!models[selected].mesh) select(0);
-};
-select(0);renderBag();
+renderBag();
 </script>
 </html>
