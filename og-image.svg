@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">BIG MOH Apple Store</title>
+  <desc id="desc">Buy, sell and swap iPhones in Lawanson, Lagos.</desc>
+  <defs>
+    <radialGradient id="glow" cx="76%" cy="25%" r="70%"><stop stop-color="#e1b463" stop-opacity=".34"/><stop offset="1" stop-color="#080806" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffe1a3"/><stop offset="1" stop-color="#ad6d21"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#080806"/><rect width="1200" height="630" fill="url(#glow)"/>
+  <g stroke="#e1b463" stroke-opacity=".1"><path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/><path d="M100 0v630M200 0v630M300 0v630M400 0v630M500 0v630M600 0v630M700 0v630M800 0v630M900 0v630M1000 0v630M1100 0v630"/></g>
+  <rect x="735" y="92" width="242" height="450" rx="52" fill="#17130d" stroke="#e1b463" stroke-width="5"/><rect x="759" y="119" width="194" height="392" rx="34" fill="url(#gold)"/><rect x="817" y="132" width="78" height="18" rx="9" fill="#080806"/><circle cx="856" cy="334" r="28" fill="#080806" fill-opacity=".8"/>
+  <text x="84" y="112" fill="#e1b463" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="8">LAWANSON · LAGOS</text>
+  <text x="76" y="252" fill="#f6f0e5" font-family="Arial,sans-serif" font-size="112" font-weight="900" letter-spacing="-7">BIGMOH</text>
+  <text x="80" y="342" fill="#ffe1a3" font-family="Georgia,serif" font-size="76">APPLESTORE</text>
+  <text x="84" y="438" fill="#aaa295" font-family="Arial,sans-serif" font-size="32">BUY · SELL · SWAP</text>
+  <text x="84" y="504" fill="#f6f0e5" font-family="Arial,sans-serif" font-size="25">Shop 4, D'yard Plaza, Lawanson Road</text>
+</svg>
